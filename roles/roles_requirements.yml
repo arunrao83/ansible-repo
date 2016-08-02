@@ -17,10 +17,21 @@
   version: "v1.0.3"
   name: knopki.locale
 
-- src: git+https://github.com/ANXS/postgresql.git
-  version: "v1.1.1"
-  name: ANXS.postgresql
+- src: git+https://github.com/elastic/ansible-elasticsearch.git
+#  version: "v1.1.1"
+  name: ansible-elasticsearch
 
 - src: git+https://github.com/AutomationWithAnsible/ansible-nginx.git
   version: "v1.0.3"
   name: ansible-nginx
+
+- src: git+https://github.com/ivanst-stoyanov/ansible-cassandra.git
+#  version: ""
+  name: ansible-cassandra
+
+- src: git+https://github.com/Stouts/Stouts.mongodb.git
+  version: "2.2.8"
+
+- src: git+https://github.com/ANXS/postgresql.git
+  version: "v1.5.0"
+  name: ANXS.postgresql
