@@ -25,7 +25,7 @@
   version: "v1.0.3"
   name: ansible-nginx
 
-- src: git+https://github.com/ivanst-stoyanov/ansible-cassandra.git
+- src: git+https://github.com/deimosfr/ansible-cassandra.git
 #  version: ""
   name: ansible-cassandra
 

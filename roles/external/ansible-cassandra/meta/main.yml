@@ -1,16 +1,15 @@
----
 galaxy_info:
-  author: "Ivan Stoyanov"
-  company: SevenSpikes
-  license: BSD
+  author: Pierre Mavro
+  description: Cassandra role
+  company:
+  license: GPLv3
   min_ansible_version: 2.0
   platforms:
-    - name: Ubuntu
+    - name: Debian
       versions:
-        - precise
-        - trusty
+        - jessie
   galaxy_tags:
+    - databases
+    - databases-nosql
     - cassandra
-    - nosql
 dependencies: []
-  
