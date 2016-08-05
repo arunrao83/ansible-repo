@@ -25,9 +25,9 @@
   version: "v1.0.3"
   name: ansible-nginx
 
-- src: git+https://github.com/deimosfr/ansible-cassandra.git
+- src: git+https://github.com/shribigb/ansible-dse
 #  version: ""
-  name: ansible-cassandra
+  name: ansible-dse
 
 - src: git+https://github.com/Stouts/Stouts.mongodb.git
   version: "2.2.8"

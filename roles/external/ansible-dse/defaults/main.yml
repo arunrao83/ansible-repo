@@ -1,28 +1,15 @@
-Ansible Cassandra role
-=====
+---
 
-[![Build Status](https://travis-ci.org/deimosfr/ansible-scylladb.svg?branch=master)](https://travis-ci.org/deimosfr/ansible-cassandra)
-
-This role installs and configures Cassandra on a server.
-
-Requirements
-------------
-
-This role requires Ansible 2.0 or higher and platform requirements are listed
-in the metadata file.
-
-Role Variables
---------------
-
-The variables that can be passed to this role and a brief description about
-them are as follows.
-
-```yaml
 ## Install repos and version
-cassandra_version: 3.0
-cassandra_apt_repo: "deb http://debian.datastax.com/community {{cassandra_version}} main"
-cassandra_apt_key: 'https://debian.datastax.com/debian/repo_key'
-cassandra_apt_pkg: 'dsc30'
+#cassandra_version: 3.0
+#cassandra_apt_repo: "deb http://debian.datastax.com/community {{cassandra_version}} main"
+#cassandra_apt_key: 'https://debian.datastax.com/debian/repo_key'
+#cassandra_apt_pkg: 'dsc30'
+
+dse_yum_repo: 'http://rpm.datastax.com/enterprise'
+dse_yum_pkg: 'dse-full-5.0.1-1'
+dse_yum_username: ''
+dse_yum_password: ''
 
 # service
 cassandra_manage_service: true
@@ -120,6 +107,7 @@ cassandra_main_config:
   request_timeout_in_ms: 10000
   cross_node_timeout: false
   endpoint_snitch: SimpleSnitch
+  dynamic_snitch_update_interval_in_ms: 100 
   dynamic_snitch_reset_interval_in_ms: 600000
   dynamic_snitch_badness_threshold: 0.1
   request_scheduler: org.apache.cassandra.scheduler.NoScheduler
@@ -181,31 +169,3 @@ cassandra_kvm_options:
   - '-XX:+UseGCLogFileRotation'
   - '-XX:NumberOfGCLogFiles=10'
   - '-XX:GCLogFileSize=10M'
-```
-
-Examples
-========
-
-```yaml
-# Roles
-- name: cassandra
-  hosts: cassandra
-  user: root
-  roles:
-    - deimosfr.cassandra
-```
-
-Dependencies
-------------
-
-None
-
-License
--------
-
-GPL
-
-Author Information
-------------------
-
-Pierre Mavro / deimosfr

@@ -36,10 +36,10 @@
     backup: yes
   notify: restart cassandra
   with_items:
-    - { src: 'cassandra.yml.j2', dest: '/etc/cassandra/cassandra.yml' }
+    - { src: 'cassandra.yml.j2', dest: '/etc/dse/cassandra/cassandra.yml' }
     - { src: 'cassandra_shell.j2', dest: '/etc/default/cassandra', dict: '{{cassandra_server_defaults}}' }
-    - { src: 'cassandra_shell.j2', dest: '/etc/cassandra/cassandra-rackdc.properties', dict: '{{cassandra_rack_dc}}' }
-    - { src: 'cassandra_shell.j2', dest: '/etc/cassandra/cassandra-topology.properties', dict: '{{cassandra_topology_properties}}' }
-    - { src: 'cassandra_list.j2', dest: '/etc/cassandra/jvm.options', list: '{{cassandra_kvm_options}}'}
-    - { src: 'logback-tools.xml.j2', dest: '/etc/cassandra/logback-tools.xml' }
-    - { src: 'logback.xml.j2', dest: '/etc/cassandra/logback.xml' }
+    - { src: 'cassandra_shell.j2', dest: '/etc/dse/cassandra/cassandra-rackdc.properties', dict: '{{cassandra_rack_dc}}' }
+    - { src: 'cassandra_shell.j2', dest: '/etc/dse/cassandra/cassandra-topology.properties', dict: '{{cassandra_topology_properties}}' }
+    - { src: 'cassandra_list.j2', dest: '/etc/dse/cassandra/jvm.options', list: '{{cassandra_kvm_options}}'}
+    - { src: 'logback-tools.xml.j2', dest: '/etc/dse/cassandra/logback-tools.xml' }
+    - { src: 'logback.xml.j2', dest: '/etc/dse/cassandra/logback.xml' }
