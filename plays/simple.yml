@@ -2,4 +2,4 @@
 - hosts: Staging
   tasks:
     - name: Copy the file
-      copy: src=/tmp/simple.txt dest=/tmp/simple.txt
+      copy: src=/tmp/simple.txt dest=/tmp/test/simple.txt
