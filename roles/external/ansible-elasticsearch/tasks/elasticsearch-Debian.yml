@@ -6,12 +6,16 @@
   when: es_allow_downgrades
 
 - name: Debian - Add Elasticsearch repository key
-  apt_key: url="http://packages.elasticsearch.org/GPG-KEY-elasticsearch" state=present
-  when: es_use_repository
+  apt_key: url="{{ es_apt_key }}" state=present
+  when: es_use_repository and es_apt_key
 
 - name: Debian - add elasticsearch repository
-  apt_repository: repo="deb http://packages.elastic.co/elasticsearch/{{ es_major_version }}/debian stable main" state=present
+  apt_repository: repo="{{ es_apt_url }}" state=present
   when: es_use_repository
+
+- name: Debian - include versionlock
+  include: elasticsearch-Debian-version-lock.yml
+  when: es_version_lock
 
 - name: Debian - Ensure elasticsearch is installed
   apt: name=elasticsearch{% if es_version is defined and es_version != "" %}={{ es_version }}{% endif %} state=present force={{force_install}} cache_valid_time=86400
@@ -26,3 +30,7 @@
   apt: deb=/tmp/elasticsearch-{{ es_version }}.deb
   when: not es_use_repository
   register: elasticsearch_install_from_package
+
+# ansible uri module requires httplib2
+- name: python-httplib2
+  apt: name=python-httplib2

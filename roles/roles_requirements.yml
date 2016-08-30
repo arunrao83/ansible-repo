@@ -38,3 +38,6 @@
 
 - src: git+https://github.com/ansiblebit/oracle-java
   name: oracle-java
+
+- src: git+https://github.com/AerisCloud/ansible-disk.git
+  name: ansible-disk
